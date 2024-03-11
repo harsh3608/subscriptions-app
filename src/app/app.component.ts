@@ -31,9 +31,9 @@ export class AppComponent implements OnInit {
 
   login() {
     this.ref = this.dialogService.open(LoginComponent, {
-      header: 'Login',
-      width: '40%',
-      height: '50%',
+      header: 'Sign In',
+      width: '35%',
+      height: '65%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
       maximizable: false,
