@@ -22,6 +22,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogService, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -50,9 +52,25 @@ import { HttpClientModule } from '@angular/common/http';
     DropdownModule,
     InputTextareaModule,
     ToastModule,
+    DynamicDialogModule,
+    DialogModule,
+
+
+
+
+
+
+
+
+
+
     
   ],
-  providers: [MessageService],
+  providers: [
+    MessageService,
+    DialogService,
+    DynamicDialogRef,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

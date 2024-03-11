@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { LoginComponent } from './shared-common/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +11,16 @@ export class AppComponent implements OnInit {
   isUserLoggedIn = false;
   sidebarVisible: boolean = false;
   userName: string = "";
+  ref: DynamicDialogRef | undefined;
 
-  constructor() { }
+
+
+
+
+  constructor(
+    public dynamicDialogRef: DynamicDialogRef,
+    public dialogService: DialogService,
+  ) { }
 
   ngOnInit(): void {
 
@@ -20,7 +30,19 @@ export class AppComponent implements OnInit {
 
 
   login() {
-    
+    this.ref = this.dialogService.open(LoginComponent, {
+      header: 'Login',
+      width: '40%',
+      height: '50%',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+      maximizable: false,
+    });
+    this.ref.onClose.subscribe((res: any) => {
+      if (res?.isSuccess) {
+        
+      }
+    });
   }
 
 
