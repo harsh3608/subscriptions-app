@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+/* Layout */
+
+@import '../src/assets/layout/styles/layout/layout.css';  
+
+@import '../src/assets/layout/styles/layout/layout.scss';  
+
+/* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.css"; */
+
+/* PrimeNG */
+
+@import '../node_modules/primeng/resources/primeng.min.css';
+
+@import '../node_modules/primeflex/primeflex.css';
+
+@import '../node_modules/primeicons/primeicons.css';
+
+
+.p-sidebar-left {
+    top: 56px ;
+    left: 0;
+    width: 20rem;
+    height: 100%;
+}
+
+.dialog_scrollable_content {
+    height: calc(88vh - 145px);
+    overflow: auto;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.dialog_scrollable_content .p-dialog-content {
+    padding-bottom: 0 !important;
+
+}
+
+.dialog_footer_buttons {
+    height: 57px;
+    position: relative;
+    border-top: 1px solid #ddd;
+    text-align: right;
+    margin-bottom: 0px;
+}
+
+.input_number_custom{
+
+}
+
+.input_number_custom .p-inputnumber.p-inputnumber-buttons-stacked{
+    position: relative;
+}
+
+.input_number_custom .p-inputnumber-buttons-stacked .p-button.p-inputnumber-button-down {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 0;
+}
+
+
+.input_number_custom .p-inputnumber-buttons-stacked .p-button.p-inputnumber-button-up {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0;
+}
+
+.input_number_custom .p-fluid .p-button-icon-only {
+    width: 3rem;
+}
+
+.input_number_custom .p-inputnumber-button-group {
+    position: absolute;
+    right: 0;
+    height: 3rem;
+}
