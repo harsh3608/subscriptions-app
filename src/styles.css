@@ -78,3 +78,11 @@
     right: 0;
     height: 3rem;
 }
+
+
+
+.p-ripple.p-element.p-button.p-component.p-button-secondary.p-button-raised.p-button-text{
+    background: rgb(135 85 215 / 85%);
+    border-color: transparent;
+    color: #fdfdfd;
+}
