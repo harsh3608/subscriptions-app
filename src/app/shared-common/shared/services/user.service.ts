@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginResponse, UserLoginRequest, UserRegisterRequest } from '../models/user-models';
-import { Observable } from 'rxjs';
+import { ForgotPasswordResponse, LoginResponse, PasswordChangeRequest, PasswordChangeResponse, ResetPasswordRequest, UserLoginRequest, UserRegisterRequest } from '../models/user-models';
+import { Observable, ObservedValueOf } from 'rxjs';
 import { Constants } from '../utils/constants';
 
 @Injectable({
@@ -22,10 +22,20 @@ export class UserService {
     return this.http.post<LoginResponse>(Constants.baseServerUrl + 'Account/Register', request, { headers: this.headers })
   }
 
+  changePassword(request: PasswordChangeRequest): Observable<PasswordChangeResponse> {
+    return this.http.post<PasswordChangeResponse>(Constants.baseServerUrl + 'Account/Change-Password', request, { headers: this.headers })
+  }
 
+  forgotPassword(request: any): Observable<ForgotPasswordResponse> {
+    return this.http.post<ForgotPasswordResponse>(Constants.baseServerUrl + 'Account/Forgot-Password', request, { headers: this.headers })
+  }
 
+  resendOtp(request: any): Observable<ForgotPasswordResponse> {
+    return this.http.post<ForgotPasswordResponse>(Constants.baseServerUrl + 'Account/Resend-Otp', request, { headers: this.headers })
+  }
 
-
-
+  resetPassword(request: ResetPasswordRequest): Observable<PasswordChangeResponse> {
+    return this.http.post<PasswordChangeResponse>(Constants.baseServerUrl + 'Account/Reset-Password', request, { headers: this.headers })
+  }
 
 }

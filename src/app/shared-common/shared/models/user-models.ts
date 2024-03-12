@@ -27,4 +27,31 @@ export interface UserRegisterRequest {
     password: string
     confirmPassword: string
     userType: number
+}
+
+export interface PasswordChangeRequest {
+    email: string
+    currentPassword: string
+    newPassword: string
+}
+
+export interface PasswordChangeResponse {
+    statusCode: number
+    isSuccess: boolean
+    response: any
+    message: string
+}
+
+export interface ForgotPasswordResponse {
+    statusCode: number
+    isSuccess: boolean
+    response: string
+    message: string
+}
+
+
+export interface ResetPasswordRequest{
+    email: string
+    otp: string
+    newPassword: string
   }
