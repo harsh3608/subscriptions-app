@@ -48,8 +48,9 @@ export class LoginComponent implements OnInit {
       //call service method
       this.userService.login(this.loginRequest).subscribe((res) => {
         if (res.isSuccess) {
-          this.router.navigate(['/']);
           this.messageService.add({ severity: 'success', summary: 'Success', detail: res.message });
+          sessionStorage.setItem('access-token', res.response.token)
+          this.router.navigate(['/']);
         } else {
           this.messageService.add({ severity: 'warn', summary: 'Failure', detail: res.message });
         };
