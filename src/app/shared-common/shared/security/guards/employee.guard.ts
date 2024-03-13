@@ -7,7 +7,7 @@ import { AuthService } from "../../services/auth.service";
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeGuard implements CanActivate {
+export class UserGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -15,7 +15,7 @@ export class EmployeeGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const role = this.authService.getLoggedInUserDetails().UserType;
-      if (this.authService.isLoggedIn() && role == 'Employee') {
+      if (this.authService.isLoggedIn() && role == 'User') {
       return true;
     } else {
       this.router.navigate(['']);

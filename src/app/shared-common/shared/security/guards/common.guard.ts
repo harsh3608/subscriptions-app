@@ -14,7 +14,7 @@ export class CommonGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const role = this.authService.getLoggedInUserDetails().UserType;
-      if (this.authService.isLoggedIn() && role == 'Admin' || role == 'Employee') {
+      if (this.authService.isLoggedIn() && role == 'Admin' || role == 'User') {
       return true;
     } else {
       this.router.navigate(['']);

@@ -1,1 +1,85 @@
-<p>register works!</p>
+<p-toast></p-toast>
+<div class="row w-100 p-0" style="height: calc(100vh - 58px);margin-right: 0px;margin-left: 0;">
+    <!-- First Column -->
+    <div class="col-md-4 p-0 d-flex flex-column align-items-center">
+        <div class="w-75 mx-auto my-6">
+            <h4>Register to Music Monkey and listen over 2M songs and podcasts.</h4>
+        </div>
+        <div class="card login-card mx-auto">
+
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+                <div class="row">
+                    <div class="col">
+                        <span class="p-float-label  ">
+                            <input pInputText class="w-100" id="firtName" formControlName="firtName" />
+                            <label for="firtName">Firt Name</label>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span class="p-float-label  ">
+                            <input pInputText class="w-100" id="lastName" formControlName="lastName" />
+                            <label for="lastName">Last Name</label>
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <span class="p-float-label my-5 ">
+                    <input pInputText class="w-100" id="username" formControlName="email" />
+                    <label for="username">Email</label>
+                </span>
+
+
+
+                <span class="p-float-label my-5">
+                    <p-password formControlName="password" [toggleMask]="true">
+                        <ng-template pTemplate="footer">
+                            <p-divider></p-divider>
+                            <p class="mt-2">Suggestions</p>
+                            <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                                <li>At least one lowercase</li>
+                                <li>At least one uppercase</li>
+                                <li>At least one numeric</li>
+                                <li>Minimum 8 characters</li>
+                            </ul>
+                        </ng-template>
+                    </p-password>
+                    <label>Password</label>
+                </span>
+
+                <span class="p-float-label my-5">
+                    <p-password formControlName="confirmPassword" [toggleMask]="true">
+                        <ng-template pTemplate="footer">
+                            <p-divider></p-divider>
+                            <p class="mt-2">Suggestions</p>
+                            <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                                <li>At least one lowercase</li>
+                                <li>At least one uppercase</li>
+                                <li>At least one numeric</li>
+                                <li>Minimum 8 characters</li>
+                            </ul>
+                        </ng-template>
+                    </p-password>
+                    <label>Confirm Password</label>
+                </span>
+
+                <div class="m-2 flex justify-content-center">
+                    <!-- <button class="btn btn-primary ">Submit</button>  
+                    [disabled]="loginForm.invalid" -->
+                    <button type="submit" style="background-color: #8a2be2; border-color: blueviolet;"
+                        class="btn rounded-pill btn-primary">Register</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+    <!-- Second Column -->
+    <div class="col-md-8 p-0 img_right_login">
+        <img src="../../../assets/images/monkey-3507317_1920.jpg" alt="bg-img" class="custom-img">
+
+        <img src="../../../assets/images/mm-logo1.JPG" alt="bg-img" class="logo-img">
+    </div>
+</div>
