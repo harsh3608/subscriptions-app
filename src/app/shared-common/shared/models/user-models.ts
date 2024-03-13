@@ -19,7 +19,6 @@ export interface AuthenticationResponse {
 }
 
 export interface UserRegisterRequest {
-    id: string
     personName: string
     gender: string
     email: string
