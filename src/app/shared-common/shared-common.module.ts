@@ -10,8 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-
-
+import { PasswordModule } from 'primeng/password';
+import { DividerModule } from 'primeng/divider';
 
 
 
@@ -32,8 +32,9 @@ import { MessageService } from 'primeng/api';
     FormsModule,
     ReactiveFormsModule,
     ToastModule,
-
-
+    PasswordModule,
+    DividerModule,
+    
 
     
 
