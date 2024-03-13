@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 
 
@@ -29,7 +31,15 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     InputTextModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastModule,
 
+
+
+    
+
+  ],
+  providers:[
+    MessageService
   ]
 })
 export class SharedCommonModule { }
