@@ -21,9 +21,10 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DialogService, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { DialogModule } from 'primeng/dialog';
+import { AuthConfigInterceptor } from '../../src/app/shared-common/shared/security/interceptors/auth-config.interceptor';
 
 @NgModule({
   declarations: [
@@ -64,12 +65,17 @@ import { DialogModule } from 'primeng/dialog';
 
 
 
-    
+
   ],
   providers: [
     MessageService,
     DialogService,
     DynamicDialogRef,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthConfigInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

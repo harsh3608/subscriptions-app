@@ -34,4 +34,18 @@ export class AuthService {
     return false
   }
 
+  getUserToken() : string{
+    const token = sessionStorage.getItem('access-token') || '';
+    const decodedToken: string = this.jwtHelperService.decodeToken(token) || '';
+    return decodedToken;
+  }
+
+  removeToken(){
+    sessionStorage.clear();
+  }
+
+  isLoggedIn(): boolean {
+    return sessionStorage.getItem("access_token") ? true : false
+  }
+
 }
