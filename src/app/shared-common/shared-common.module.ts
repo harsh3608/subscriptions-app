@@ -12,6 +12,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -34,7 +35,7 @@ import { DividerModule } from 'primeng/divider';
     ToastModule,
     PasswordModule,
     DividerModule,
-    
+    ButtonModule
 
     
 
