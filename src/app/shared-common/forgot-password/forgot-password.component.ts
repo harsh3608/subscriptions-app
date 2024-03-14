@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map, takeWhile, timer } from 'rxjs';
 import { UserService } from '../shared/services/user.service';
+import { ResetPasswordRequest } from '../shared/models/user-models';
 
 @Component({
   selector: 'app-forgot-password',
@@ -14,6 +15,8 @@ export class ForgotPasswordComponent implements OnInit {
   display: any;
   disableResendOtp: boolean = true;
   otp!: string;
+  password: string = '';
+  confirmPassword: string = '';
 
   constructor(
     private userService: UserService
@@ -61,6 +64,16 @@ export class ForgotPasswordComponent implements OnInit {
 
       }
     })
+  }
+
+  resetPassword() {
+    var request: ResetPasswordRequest = {
+      email: this.email,
+      otp: this.otp,
+      newPassword: this.password
+    }
+
+    
   }
 
 
