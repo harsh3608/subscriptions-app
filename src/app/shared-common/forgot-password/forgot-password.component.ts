@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map, takeWhile, timer } from 'rxjs';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,15 +13,54 @@ export class ForgotPasswordComponent implements OnInit {
   isVerified: boolean = false;
   display: any;
   disableResendOtp: boolean = true;
-  otp!: number;
+  otp!: string;
 
   constructor(
-
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
     this.timer();
 
+  }
+
+
+
+  sendMail() {
+    var mailRequest = {
+      email: this.email
+    }
+    this.userService.forgotPassword(mailRequest).subscribe((res) => {
+      if (res.isSuccess) {
+        this.isOtpSent = true;
+      } else {
+
+      }
+    });
+  }
+
+  validateOtp() {
+    this.userService.validateOtp(this.otp).subscribe((res) => {
+      if (res.isSuccess) {
+        this.isVerified = true;
+      } else {
+
+      }
+    })
+  }
+
+  resendOtp() {
+    var mailRequest = {
+      email: this.email
+    }
+    this.userService.resendOtp(mailRequest).subscribe((res) => {
+      if (res.isSuccess) {
+        this.disableResendOtp = true;
+        this.timer();
+      } else {
+
+      }
+    })
   }
 
 

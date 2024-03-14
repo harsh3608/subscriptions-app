@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ForgotPasswordResponse, LoginResponse, PasswordChangeRequest, PasswordChangeResponse, ResetPasswordRequest, UserLoginRequest, UserRegisterRequest } from '../models/user-models';
+import { ForgotPasswordResponse, LoginResponse, PasswordChangeRequest, PasswordChangeResponse, ResetPasswordRequest, UserLoginRequest, UserRegisterRequest, ValidateOtpResponse } from '../models/user-models';
 import { Observable, ObservedValueOf } from 'rxjs';
 import { Constants } from '../utils/constants';
 
@@ -36,6 +36,10 @@ export class UserService {
 
   resetPassword(request: ResetPasswordRequest): Observable<PasswordChangeResponse> {
     return this.http.post<PasswordChangeResponse>(Constants.baseServerUrl + 'Account/Reset-Password', request, { headers: this.headers })
+  }
+
+  validateOtp(otp:string): Observable<ValidateOtpResponse> {
+    return this.http.get<ValidateOtpResponse>(Constants.baseServerUrl + `Account/Validate-Otp?otp=${otp}`,  { headers: this.headers })
   }
 
 }

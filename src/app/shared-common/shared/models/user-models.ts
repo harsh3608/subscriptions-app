@@ -53,4 +53,11 @@ export interface ResetPasswordRequest{
     email: string
     otp: string
     newPassword: string
-  }
+}
+
+export interface ValidateOtpResponse {
+    statusCode: number
+    isSuccess: boolean
+    response: boolean
+    message: string
+}
