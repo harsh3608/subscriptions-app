@@ -25,27 +25,25 @@ export class AuthService {
   }
 
   isUserAuthorized() {
-    const token = sessionStorage.getItem('access-token') || '';
-    const decodedToken: any = this.jwtHelperService.decodeToken(token);
-    const expirytime = this.jwtHelperService.getTokenExpirationDate(decodedToken) || '';
-    if(expirytime > new Date){
-      return true;
-    }
-    return false
+    const accessToken = sessionStorage.getItem('access-token') || '';
+    const payload = JSON.parse(atob(accessToken.split('.')[1]));
+    const expirationDate = new Date(payload.exp * 1000);
+    const currentDate = new Date();
+    return expirationDate > currentDate;
   }
 
-  getUserToken() : string{
+  getUserToken(): string {
     const token = sessionStorage.getItem('access-token') || '';
     const decodedToken: string = this.jwtHelperService.decodeToken(token) || '';
     return decodedToken;
   }
 
-  removeToken(){
+  removeToken() {
     sessionStorage.clear();
   }
 
   isLoggedIn(): boolean {
-    return sessionStorage.getItem("access_token") ? true : false
+    return sessionStorage.getItem("access-token") ? true : false
   }
 
 }

@@ -1,1 +1,14 @@
 <p>home works!</p>
+
+
+@if (isUserLoggedIn) {
+<div class="flex align-items-center">
+    <h2>User Logged In</h2>
+</div>
+
+}
+@else {
+<div class="flex align-items-center">
+    <h2>User Logged Out</h2>
+</div>
+}
