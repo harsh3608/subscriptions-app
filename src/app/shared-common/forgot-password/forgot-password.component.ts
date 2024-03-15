@@ -72,8 +72,14 @@ export class ForgotPasswordComponent implements OnInit {
       otp: this.otp,
       newPassword: this.password
     }
+    this.userService.resetPassword(request).subscribe((res) => {
+      if (res.isSuccess) {
 
-    
+      } else {
+
+      }
+    })
+
   }
 
 
